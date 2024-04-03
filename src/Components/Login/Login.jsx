@@ -8,6 +8,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     //post request to backend and then check whether the details are true or not then login or view error message as wish
+    // jwt token to be generated on login, could be refresh token and then active token or whatever
     navigate("/home");
   };
 
