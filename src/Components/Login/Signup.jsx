@@ -2,16 +2,30 @@ import React from "react";
 import "./signup.css";
 import { Link, useNavigate } from "react-router-dom";
 const Signup = () => {
+  const nameSource = document.getElementById("name");
+  const emailSource = document.getElementById("email");
+  const passwordSource = document.getElementById("password");
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    //validation then bring to login page then home
+    // let midPassword = bcrypt.hash(passwordSource.value);
+    console.log({ nameSource, emailSource, passwordSource });
+    const response = await fetch("http://localhost:3000/api/signup", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: {
+        email: emailSource.value,
+        name: nameSource.value,
+        password: midPassword,
+      },
+    });
     navigate("/login");
   };
 
   return (
-    <div>
+    <div className="wrappers-wrapper">
       <div className="wrapper">
         <h2>Registration</h2>
         <form action="#">

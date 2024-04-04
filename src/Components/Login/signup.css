@@ -6,14 +6,22 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.wrappers-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* align-items: center; */
 }
+
 .wrapper {
   position: relative;
   max-width: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
   background: #fff;
   padding: 34px;
