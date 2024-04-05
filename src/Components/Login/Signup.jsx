@@ -1,27 +1,47 @@
 import React from "react";
 import "./signup.css";
 import { Link, useNavigate } from "react-router-dom";
+import bcrypt from "bcryptjs";
 const Signup = () => {
-  const nameSource = document.getElementById("name");
-  const emailSource = document.getElementById("email");
-  const passwordSource = document.getElementById("password");
+  const url = "http://localhost:3000/api/signup";
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
+    const nameSource = document.getElementById("name");
+    const emailSource = document.getElementById("email");
+    const passwordSource = document.getElementById("password");
+    console.log("1");
     e.preventDefault();
-    // let midPassword = bcrypt.hash(passwordSource.value);
-    console.log({ nameSource, emailSource, passwordSource });
-    const response = await fetch("http://localhost:3000/api/signup", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: {
-        email: emailSource.value,
-        name: nameSource.value,
-        password: midPassword,
-      },
-    });
-    navigate("/login");
+    try {
+      console.log("2");
+      // console.log(nameSource.value, emailSource.value, passwordSource.value);
+      if (!emailSource.value || !passwordSource.value || !nameSource.value) {
+        console.log("3");
+        throw new Error("Some required fields empty");
+      } else {
+        console.log("4");
+        console.log(nameSource.value, emailSource.value, passwordSource.value);
+        let midPassword = bcrypt.hashSync(passwordSource.value);
+        console.log(midPassword);
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            email: emailSource.value,
+            name: nameSource.value,
+            password: midPassword,
+          }),
+        });
+
+        console.log("5");
+        console.log("success in sending data \t ", response);
+        navigate("/login");
+      }
+    } catch (e) {
+      console.log("6");
+      console.log("asjkdfhhh", e);
+    }
   };
 
   return (
@@ -30,16 +50,36 @@ const Signup = () => {
         <h2>Registration</h2>
         <form action="#">
           <div className="input-box">
-            <input type="text" placeholder="Enter your name" required />
+            <input
+              type="text"
+              placeholder="Enter your name"
+              id="name"
+              required
+            />
           </div>
           <div className="input-box">
-            <input type="text" placeholder="Enter your email" required />
+            <input
+              type="text"
+              placeholder="Enter your email"
+              id="email"
+              required
+            />
           </div>
           <div className="input-box">
-            <input type="password" placeholder="Create password" required />
+            <input
+              type="password"
+              placeholder="Create password"
+              id="password"
+              required
+            />
           </div>
           <div className="input-box">
-            <input type="password" placeholder="Confirm password" required />
+            <input
+              type="password"
+              placeholder="Confirm password"
+              id="confirm"
+              required
+            />
           </div>
           <div className="policy">
             <input type="checkbox" />
