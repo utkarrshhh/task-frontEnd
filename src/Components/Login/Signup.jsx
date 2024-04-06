@@ -20,8 +20,8 @@ const Signup = () => {
       } else {
         console.log("4");
         console.log(nameSource.value, emailSource.value, passwordSource.value);
-        let midPassword = bcrypt.hashSync(passwordSource.value);
-        console.log(midPassword);
+        // let midPassword = bcrypt.hashSync(passwordSource.value);
+        // console.log(midPassword);
         const response = await fetch(url, {
           method: "POST",
           headers: {
@@ -30,7 +30,7 @@ const Signup = () => {
           body: JSON.stringify({
             email: emailSource.value,
             name: nameSource.value,
-            password: midPassword,
+            password: passwordSource.value,
           }),
         });
 

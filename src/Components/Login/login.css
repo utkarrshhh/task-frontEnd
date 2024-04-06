@@ -124,3 +124,8 @@ a {
   display: flex;
   justify-content: center;
 }
+
+#errorLine {
+  color: red;
+  font-size: 12px;
+}
