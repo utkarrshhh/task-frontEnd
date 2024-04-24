@@ -23,7 +23,7 @@ const Navbar = () => {
               <Link to="/login">Logout</Link>
             </li>
           ) : (
-            <div>
+            <div style={{ display: "flex" }}>
               <li className="signup">
                 <Link to="/signup">Signup</Link>
               </li>

@@ -10,7 +10,7 @@
   border-radius: 10px;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 74%;
   width: 400px;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
@@ -128,4 +128,28 @@ a {
 #errorLine {
   color: red;
   font-size: 12px;
+  min-width: fit-content;
+  border: 2px solid;
+  min-height: 1rem;
+  position: absolute;
+  right: 10%;
+}
+
+.random-thought {
+  display: flex;
+  /* border: 2px solid; */
+  max-width: 45%;
+  min-width: 45%;
+  text-wrap: wrap;
+  height: 100vh;
+  position: absolute;
+  left: 9%;
+  align-items: center;
+}
+.logo2 {
+  font-size: 1.45em;
+  /* padding: 10px 15px; */
+  text-transform: uppercase;
+  /* text-align: center; */
+  display: block;
 }

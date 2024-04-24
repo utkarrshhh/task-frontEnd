@@ -3,17 +3,23 @@ import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  let error = document.getElementById("errorLine");
+  let keyPassword = "";
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    let error = document.getElementById("errorLine");
     const email = document.getElementById("loginEmail");
     const password = document.getElementById("loginPassword");
     if (!email.value || !password.value) {
-      error.textContent = "*Fields can't be left vacant*";
+      error.innerHTML = "";
+      error.innerHTML = "*Fields can't be left vacant*";
     }
     //post request to backend and then check whether the details are true or not then login or view error message as wish
     else {
+      {
+        console.log("idhar hai ab");
+      }
       try {
         const response = await fetch("http://localhost:3000/api/login", {
           method: "POST",
@@ -28,6 +34,7 @@ const Login = () => {
           .then((value) => value.json())
           .then((value2) => {
             console.log(value2);
+            console.log("idhar dekho");
             if (
               value2.message.includes("not") ||
               value2.message.includes("Wrong") ||
@@ -35,7 +42,10 @@ const Login = () => {
             ) {
               error.innerHTML = `*${value2.message}*`;
             } else {
+              console.log("ab yaha hai");
               sessionStorage.setItem("token", `Bearer ${value2.token}`);
+              keyPassword = value2.keyPassword;
+              console.log(keyPassword);
               console.log("session storage done");
               navigate("/");
             }
@@ -47,12 +57,25 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+      <div className="random-thought">
+        <div>
+          <div style={{ color: "skyblue", fontSize: "34px" }}>
+            <h1 className="logo2">
+              <Link to="#">Thoughts Pro</Link>
+            </h1>
+          </div>
+          here description - Lorem, ipsum dolor sit amet consectetur adipisicing
+          elit. Consectetur nostrum facere voluptatum, nihil accusantium aliquam
+          pariatur quia explicabo magnam modi in fugit quaerat! Vel earum alias
+          dignissimos sit dolorum libero odio distinctio! Similique, facilis.
+        </div>
+      </div>
       <div className="form-elements">
         <form className="login">
           <input type="text" placeholder="Username" id="loginEmail" />
           <input type="password" placeholder="Password" id="loginPassword" />
-          <div id="errorLine"></div>
+          <div id="errorLine">{console.log("loaded")}</div>
           <button onClick={handleSubmit}>Login</button>
           <div className="signup-redirect">
             <p>
@@ -61,7 +84,7 @@ const Login = () => {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 
