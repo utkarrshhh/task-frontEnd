@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
-import { handleLogout } from "../Login/HandleLoginLogout";
+// import { handleLogout } from "../Login/HandleLoginLogout";
+import Avatar from "react-avatar";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const token = sessionStorage.getItem("token");
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    sessionStorage.clear();
+    navigate("/login");
+  };
+  const [image, setImage] = useState();
+
   return (
     <div>
       {" "}
@@ -11,7 +20,10 @@ const Navbar = () => {
         <h1 className="logo">
           <Link to="#">Thoughts Pro</Link>
         </h1>
-        <ul className="main-nav">
+        <ul
+          className="main-nav"
+          style={{ textAlign: "center", height: "inherit" }}
+        >
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -19,15 +31,32 @@ const Navbar = () => {
             <Link to="/about">About</Link>
           </li>
           {token ? (
-            <li className="">
-              <Link to="/login">Logout</Link>
-            </li>
+            <div style={{ display: "flex" }}>
+              <li className="" onClick={handleLogout}>
+                <Link to="/login">Logout</Link>
+              </li>
+              <Avatar
+                name="profile"
+                style={{
+                  borderRadius: "50%",
+                  overflow: "hidden",
+                  padding: "0px",
+                  margin: "0px",
+                  height: "40px",
+                  width: "40px",
+                  position: "absolute",
+                  right: "20px",
+                }}
+              >
+                {image ? <img src="" alt="" /> : ""}
+              </Avatar>
+            </div>
           ) : (
             <div style={{ display: "flex" }}>
               <li className="signup">
                 <Link to="/signup">Signup</Link>
               </li>
-              <li className="login-nav" onClick={handleLogout}>
+              <li className="login-nav">
                 <Link to="/login">Login</Link>
               </li>
             </div>

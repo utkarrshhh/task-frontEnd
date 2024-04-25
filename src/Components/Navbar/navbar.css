@@ -96,3 +96,25 @@ a {
     justify-content: center;
   }
 }
+/* .sv-avatar {
+    border-radius: 50%;
+  } */
+/* .sb-avatar__text {
+  height: 0;
+  width: 0;
+} */
+
+.sb-avatar > div {
+  /* padding: 0; */
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.main-nav li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sb-avatar__text > div > span > span {
+  font-size: x-large;
+}

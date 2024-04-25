@@ -3,7 +3,7 @@ import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  let keyPassword = "";
+  let keyPasswordToken = "";
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,9 +17,8 @@ const Login = () => {
     }
     //post request to backend and then check whether the details are true or not then login or view error message as wish
     else {
-      {
-        console.log("idhar hai ab");
-      }
+      // console.log("idhar hai ab");
+
       try {
         const response = await fetch("http://localhost:3000/api/login", {
           method: "POST",
@@ -44,8 +43,8 @@ const Login = () => {
             } else {
               console.log("ab yaha hai");
               sessionStorage.setItem("token", `Bearer ${value2.token}`);
-              keyPassword = value2.keyPassword;
-              console.log(keyPassword);
+              keyPasswordToken = value2.keyPasswordToken;
+              console.log(keyPasswordToken);
               console.log("session storage done");
               navigate("/");
             }
@@ -66,9 +65,7 @@ const Login = () => {
             </h1>
           </div>
           here description - Lorem, ipsum dolor sit amet consectetur adipisicing
-          elit. Consectetur nostrum facere voluptatum, nihil accusantium aliquam
-          pariatur quia explicabo magnam modi in fugit quaerat! Vel earum alias
-          dignissimos sit dolorum libero odio distinctio! Similique, facilis.
+          elit. Consectetur
         </div>
       </div>
       <div className="form-elements">
