@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   let keyPasswordToken = "";
+  let keyEmailToken = "";
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,7 +45,9 @@ const Login = () => {
               console.log("ab yaha hai");
               sessionStorage.setItem("token", `Bearer ${value2.token}`);
               keyPasswordToken = value2.keyPasswordToken;
+              keyEmailToken = value2.keyEmailToken;
               console.log(keyPasswordToken);
+              console.log(keyEmailToken);
               console.log("session storage done");
               navigate("/");
             }

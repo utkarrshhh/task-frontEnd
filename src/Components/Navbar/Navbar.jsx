@@ -35,21 +35,29 @@ const Navbar = () => {
               <li className="" onClick={handleLogout}>
                 <Link to="/login">Logout</Link>
               </li>
-              <Avatar
-                name="profile"
-                style={{
-                  borderRadius: "50%",
-                  overflow: "hidden",
-                  padding: "0px",
-                  margin: "0px",
-                  height: "40px",
-                  width: "40px",
-                  position: "absolute",
-                  right: "20px",
-                }}
-              >
-                {image ? <img src="" alt="" /> : ""}
-              </Avatar>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <span
+                  className="name-text"
+                  style={{ position: "absolute", right: "68px" }}
+                >
+                  Welcome
+                </span>
+                <Avatar
+                  name="Utkarsh Shukla"
+                  style={{
+                    borderRadius: "50%",
+                    overflow: "hidden",
+                    padding: "0px",
+                    margin: "0px",
+                    height: "40px",
+                    width: "40px",
+                    position: "absolute",
+                    right: "20px",
+                  }}
+                >
+                  {image ? <img src="" alt="" /> : ""}
+                </Avatar>
+              </div>
             </div>
           ) : (
             <div style={{ display: "flex" }}>
