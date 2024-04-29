@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ProfileView.css";
-const ProfileView = () => {
+import Avatar from "react-avatar";
+import AboutContext from "../../Contexts/AboutContext";
+
+const ProfileView = (props) => {
+  const { name, setName, email, setEmail } = useContext(AboutContext);
+  console.log(name, email);
+  console.log(props);
   return (
-    <>
-      <div className="profileContainer">ProfileView</div>
-    </>
+    <div>
+      <div className="profileContainer">
+        <div
+          className="profileImage"
+          style={{
+            borderRadius: "50%",
+            height: "65px",
+            width: "65px",
+            border: "2px solid",
+            alignContent: "center",
+            margin: "5px auto",
+          }}
+        ></div>
+        <div
+          className="profileName"
+          style={{ margin: "10px auto", width: "fitContent" }}
+        >
+          <div>{name.toUpperCase()}</div>
+
+          <span style={{ position: "absolute", right: "10px" }}>{email}</span>
+        </div>
+      </div>
+    </div>
   );
 };
 

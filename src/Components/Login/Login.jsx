@@ -2,12 +2,14 @@ import React, { useContext } from "react";
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../../Contexts/UserContext";
+import AboutContext from "../../Contexts/AboutContext";
 
 const Login = () => {
   let keyPasswordToken = "";
   let keyEmailToken = "";
   const navigate = useNavigate();
   const { userName, setUserName } = useContext(UserContext);
+  const { name, setName, email, setEmail } = useContext(AboutContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,6 +55,8 @@ const Login = () => {
               setUserName(value2.keyName);
               sessionStorage.setItem("name", `${value2.keyName}`);
               console.log("session storage done");
+              setEmail(value2.keyEmailToken);
+              setName(value2.keyName);
               navigate("/");
             }
           });

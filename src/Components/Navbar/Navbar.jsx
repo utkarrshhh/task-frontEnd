@@ -85,7 +85,11 @@ const Navbar = () => {
                   />
                 </div>
               </div>
-              {isOpen ? <ProfileView /> : ""}
+              {isOpen ? (
+                <ProfileView name={sessionStorage.getItem("name")} />
+              ) : (
+                ""
+              )}
             </div>
           ) : (
             <div style={{ display: "flex" }}>
