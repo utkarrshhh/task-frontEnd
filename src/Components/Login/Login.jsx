@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
+import UserContext from "../../Contexts/UserContext";
 
 const Login = () => {
   let keyPasswordToken = "";
   let keyEmailToken = "";
   const navigate = useNavigate();
+  const { userName, setUserName } = useContext(UserContext);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     let error = document.getElementById("errorLine");
     const email = document.getElementById("loginEmail");
     const password = document.getElementById("loginPassword");
@@ -48,6 +50,7 @@ const Login = () => {
               keyEmailToken = value2.keyEmailToken;
               console.log(keyPasswordToken);
               console.log(keyEmailToken);
+              setUserName(value2.keyName);
               console.log("session storage done");
               navigate("/");
             }
@@ -68,7 +71,7 @@ const Login = () => {
             </h1>
           </div>
           here description - Lorem, ipsum dolor sit amet consectetur adipisicing
-          elit. Consectetur
+          elit. Consectetur below is the user
         </div>
       </div>
       <div className="form-elements">

@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 // import { handleLogout } from "../Login/HandleLoginLogout";
 import Avatar from "react-avatar";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../../Contexts/UserContext";
 const Navbar = () => {
   const token = sessionStorage.getItem("token");
   const navigate = useNavigate();
+  const { userName, setUserName } = useContext(UserContext);
   const handleLogout = () => {
     sessionStorage.clear();
     navigate("/login");
@@ -43,7 +45,7 @@ const Navbar = () => {
                   Welcome
                 </span>
                 <Avatar
-                  name="Utkarsh Shukla"
+                  name={userName}
                   style={{
                     borderRadius: "50%",
                     overflow: "hidden",
