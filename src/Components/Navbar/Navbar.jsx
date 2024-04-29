@@ -1,20 +1,43 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 // import { handleLogout } from "../Login/HandleLoginLogout";
 import Avatar from "react-avatar";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../../Contexts/UserContext";
+import ProfileView from "../Profile/ProfileView";
+import ProfileContext from "../../Contexts/ProfileContext";
+
 const Navbar = () => {
   const token = sessionStorage.getItem("token");
   const navigate = useNavigate();
   const { userName, setUserName } = useContext(UserContext);
+  const { isOpen, setIsOpen } = useContext(ProfileContext);
+  const profileRef = useRef();
   const handleLogout = () => {
     sessionStorage.clear();
     navigate("/login");
   };
   const [image, setImage] = useState();
 
+  const handleBodyClick = (event) => {
+    console.log("isOpen clicked and now " + isOpen);
+    if (event.target.tagName != "SPAN" && isOpen) {
+      console.log("inside handlebOFYDAJ");
+      setIsOpen(!isOpen);
+    }
+  };
+
+  useEffect(() => {
+    document.body.addEventListener("click", handleBodyClick);
+    return () => {
+      document.body.removeEventListener("click", handleBodyClick);
+    };
+  }, [isOpen]);
+
+  const handleProfilePage = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <div>
       {" "}
@@ -33,33 +56,36 @@ const Navbar = () => {
             <Link to="/about">About</Link>
           </li>
           {token ? (
-            <div style={{ display: "flex" }}>
-              <li className="" onClick={handleLogout}>
-                <Link to="/login">Logout</Link>
-              </li>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <span
-                  className="name-text"
-                  style={{ position: "absolute", right: "68px" }}
-                >
-                  Welcome
-                </span>
-                <Avatar
-                  name={userName}
-                  style={{
-                    borderRadius: "50%",
-                    overflow: "hidden",
-                    padding: "0px",
-                    margin: "0px",
-                    height: "40px",
-                    width: "40px",
-                    position: "absolute",
-                    right: "20px",
-                  }}
-                >
-                  {image ? <img src="" alt="" /> : ""}
-                </Avatar>
+            <div>
+              <div style={{ display: "flex" }}>
+                <li className="" onClick={handleLogout}>
+                  <Link to="/login">Logout</Link>
+                </li>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <span
+                    className="name-text"
+                    style={{ position: "absolute", right: "68px" }}
+                  >
+                    Welcome
+                  </span>
+                  <Avatar
+                    name={sessionStorage.getItem("name")}
+                    style={{
+                      borderRadius: "50%",
+                      overflow: "hidden",
+                      padding: "0px",
+                      margin: "0px",
+                      height: "40px",
+                      width: "40px",
+                      position: "absolute",
+                      right: "20px",
+                    }}
+                    ref={profileRef}
+                    onClick={handleProfilePage}
+                  />
+                </div>
               </div>
+              {isOpen ? <ProfileView /> : ""}
             </div>
           ) : (
             <div style={{ display: "flex" }}>

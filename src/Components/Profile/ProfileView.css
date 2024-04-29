@@ -1,0 +1,12 @@
+.profileContainer {
+  height: 400px;
+  width: 400px;
+  right: 20px;
+  top: 74.45px;
+  position: absolute;
+  border-top: 2px solid #211c1c;
+  border-right: 2px solid #211c1c;
+  border-radius: 20px 0px 20px 20px;
+  box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.2), 0px 5px 5px rgba(0, 0, 0, 0.2),
+    5px 0px 2px rgba(0, 0, 0, 0.2);
+}

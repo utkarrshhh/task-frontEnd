@@ -51,6 +51,7 @@ const Login = () => {
               console.log(keyPasswordToken);
               console.log(keyEmailToken);
               setUserName(value2.keyName);
+              sessionStorage.setItem("name", `${value2.keyName}`);
               console.log("session storage done");
               navigate("/");
             }
