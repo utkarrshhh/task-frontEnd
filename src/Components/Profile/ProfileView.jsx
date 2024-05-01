@@ -25,9 +25,11 @@ const ProfileView = (props) => {
           className="profileName"
           style={{ margin: "10px auto", width: "fitContent" }}
         >
-          <div>{name.toUpperCase()}</div>
+          <div>{props.name.toUpperCase()}</div>
 
-          <span style={{ position: "absolute", right: "10px" }}>{email}</span>
+          <span style={{ position: "absolute", right: "10px" }}>
+            {props.email}
+          </span>
         </div>
       </div>
     </div>

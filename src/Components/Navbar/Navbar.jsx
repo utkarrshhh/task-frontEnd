@@ -86,7 +86,10 @@ const Navbar = () => {
                 </div>
               </div>
               {isOpen ? (
-                <ProfileView name={sessionStorage.getItem("name")} />
+                <ProfileView
+                  name={sessionStorage.getItem("name")}
+                  email={sessionStorage.getItem("email")}
+                />
               ) : (
                 ""
               )}

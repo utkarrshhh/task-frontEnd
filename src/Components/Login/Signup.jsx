@@ -9,17 +9,30 @@ const Signup = () => {
     const nameSource = document.getElementById("name");
     const emailSource = document.getElementById("email");
     const passwordSource = document.getElementById("password");
-    console.log("1");
+    const confirmPassword = document.getElementById("confirm");
+    const checkbox = document.getElementById("checkbox");
+    const errorMessage = document.getElementById("errorMessage");
     e.preventDefault();
     try {
       console.log("2");
       // console.log(nameSource.value, emailSource.value, passwordSource.value);
-      if (!emailSource.value || !passwordSource.value || !nameSource.value) {
-        console.log("3");
-        throw new Error("Some required fields empty");
+
+      if (
+        !emailSource.value ||
+        !passwordSource.value ||
+        !nameSource.value ||
+        !confirmPassword.value ||
+        !checkbox.value
+      ) {
+        errorMessage.innerHTML = "*Some required fields are empty*";
+        return;
       } else {
-        console.log("4");
         console.log(nameSource.value, emailSource.value, passwordSource.value);
+        if (passwordSource.value !== confirmPassword.value) {
+          errorMessage.innerHTML =
+            "*Password and Confirm Password does not match*";
+          return;
+        }
         // let midPassword = bcrypt.hashSync(passwordSource.value);
         // console.log(midPassword);
         const response = await fetch(url, {
@@ -48,6 +61,16 @@ const Signup = () => {
     <div className="wrappers-wrapper">
       <div className="wrapper">
         <h2>Registration</h2>
+        <div
+          id="errorMessage"
+          style={{
+            margin: "5px 0px",
+            // border: "2px solid",
+            width: "fitContent",
+            minHeight: "30px",
+            color: "red",
+          }}
+        ></div>
         <form action="#">
           <div className="input-box">
             <input
@@ -82,7 +105,7 @@ const Signup = () => {
             />
           </div>
           <div className="policy">
-            <input type="checkbox" />
+            <input type="checkbox" id="checkbox" />
             <h3>I accept all terms & condition</h3>
           </div>
           <div className="input-box button">

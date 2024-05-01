@@ -38,7 +38,6 @@ const Login = () => {
           .then((value) => value.json())
           .then((value2) => {
             console.log(value2);
-            console.log("idhar dekho");
             if (
               value2.message.includes("not") ||
               value2.message.includes("Wrong") ||
@@ -46,14 +45,11 @@ const Login = () => {
             ) {
               error.innerHTML = `*${value2.message}*`;
             } else {
-              console.log("ab yaha hai");
               sessionStorage.setItem("token", `Bearer ${value2.token}`);
               keyPasswordToken = value2.keyPasswordToken;
               keyEmailToken = value2.keyEmailToken;
-              console.log(keyPasswordToken);
-              console.log(keyEmailToken);
-              setUserName(value2.keyName);
               sessionStorage.setItem("name", `${value2.keyName}`);
+              sessionStorage.setItem("email", `${value2.keyEmailToken}`);
               console.log("session storage done");
               setEmail(value2.keyEmailToken);
               setName(value2.keyName);
