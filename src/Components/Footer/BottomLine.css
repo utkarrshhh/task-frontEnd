@@ -1,0 +1,17 @@
+.bottomline {
+  position: absolute;
+  top: 74.45px;
+  border: 2px solid;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 46px;
+  z-index: 1;
+  background-color: blue;
+}
+.wholeContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}

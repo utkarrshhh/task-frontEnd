@@ -45,11 +45,25 @@ const Signup = () => {
             name: nameSource.value,
             password: passwordSource.value,
           }),
-        });
-
-        console.log("5");
-        console.log("success in sending data \t ", response);
-        navigate("/login");
+        })
+          .then((value) => value.json())
+          .then((value) => {
+            if (value.message.toLowerCase().includes("success")) {
+              console.log("success in sending data \t ", response);
+              navigate("/login");
+            } else {
+              console.log(value.message);
+              errorMessage.innerHTML = "*" + value.message + "*";
+            }
+          });
+        // console.log(response);
+        // if (response.message.contains("success")) {
+        //   console.log("5");
+        //   console.log("success in sending data \t ", response);
+        //   navigate("/login");
+        // } else {
+        //   console.log(response.message);
+        // }
       }
     } catch (e) {
       console.log("6");
