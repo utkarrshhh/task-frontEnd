@@ -22,9 +22,16 @@ const Navbar = () => {
   const [image, setImage] = useState();
 
   const handleBodyClick = (event) => {
-    console.log("isOpen clicked and now " + isOpen);
-    if (event.target.tagName != "SPAN" && isOpen) {
-      console.log("inside handlebOFYDAJ");
+    // console.log("isOpen clicked and now " + isOpen);
+    // console.log(event.target);
+    if (
+      event.target.tagName != "SPAN" &&
+      isOpen &&
+      !event.target.classList.contains("profileContainer") &&
+      !event.target.parentNode.classList.contains("profileName") &&
+      !event.target.parentNode.classList.contains("profileContainer")
+    ) {
+      // console.log("inside handlebOFYDAJ");
       setIsOpen(!isOpen);
     }
   };
@@ -68,7 +75,7 @@ const Navbar = () => {
                       className="name-text"
                       style={{ position: "absolute", right: "68px" }}
                     >
-                      Welcome
+                      Welcome,
                     </span>
                     <Avatar
                       name={sessionStorage.getItem("name")}

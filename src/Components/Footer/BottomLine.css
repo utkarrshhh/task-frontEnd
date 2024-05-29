@@ -8,10 +8,20 @@
   align-items: center;
   height: 46px;
   z-index: 1;
-  background-color: blue;
+  gap: 40px;
+  /* background-color: blue; */
 }
 .wholeContainer {
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+#imgBottomLine {
+  height: 40px;
+  width: 40px;
+}
+#imgBottomLine img {
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
 }
