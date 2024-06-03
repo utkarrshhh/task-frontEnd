@@ -50,7 +50,7 @@ const Navbar = () => {
     <div className="wholeContainer">
       <div>
         {" "}
-        <header className="header">
+        <header className="header" style={{ background: "#c3c3c3" }}>
           <h1 className="logo">
             <Link to="#">Thoughts Pro</Link>
           </h1>

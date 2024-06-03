@@ -1,0 +1,10 @@
+.bodyQuote {
+  position: relative;
+  top: 46px;
+  width: 100%;
+  /* margin: 10px 10px; */
+  height: 100px;
+  flex-direction: column;
+  display: flex;
+  background: 100vh center;
+}

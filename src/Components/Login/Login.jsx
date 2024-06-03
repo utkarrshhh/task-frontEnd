@@ -53,7 +53,7 @@ const Login = () => {
               console.log("session storage done");
               setEmail(value2.keyEmailToken);
               setName(value2.keyName);
-              navigate("/");
+              navigate("/posts");
             }
           });
       } catch (e) {

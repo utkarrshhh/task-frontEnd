@@ -5,6 +5,8 @@ import Login from "./Components/Login/Login";
 import Signup from "./Components/Login/Signup";
 import Navbar from "./Components/Navbar/Navbar";
 import Quote from "./Components/Quote/Quote";
+import Post from "./Components/Posts/Post";
+import Notification from "./Components/Notification/Notification";
 const App = () => {
   return (
     <>
@@ -14,6 +16,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/create" element={<Quote />} />
+          <Route path="/posts" element={<Post />} />
+          <Route path="/notification" element={<Notification />} />
         </Routes>
       </BrowserRouter>
     </>

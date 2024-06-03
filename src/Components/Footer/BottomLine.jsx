@@ -1,23 +1,24 @@
 import React from "react";
 import "./BottomLine.css";
+import { Link } from "react-router-dom";
 // import houseowner from "..../public/house-owner.png";
 const BottomLine = () => {
   return (
     <div className="bottomline">
       <div id="imgBottomLine">
-        <a href="/posts">
-          <img src="./public/house-owner.png" alt="" />
-        </a>
+        <Link to="/posts">
+          <img src="./house-owner.png" alt="" />
+        </Link>
       </div>
       <div id="imgBottomLine">
-        <a href="/create">
-          <img src="./public/plus-button.png" />
-        </a>
+        <Link to="/create" style={{ width: "100%", height: "100%" }}>
+          <img src="./plus-button.png" />
+        </Link>
       </div>
       <div id="imgBottomLine">
-        <a href="/notifications">
-          <img src="./public/notification.png" />
-        </a>
+        <Link to="/notification">
+          <img src="./notification.png" />
+        </Link>
       </div>
     </div>
   );
