@@ -50,7 +50,7 @@ const Navbar = () => {
     <div className="wholeContainer">
       <div>
         {" "}
-        <header className="header" style={{ background: "#c3c3c3" }}>
+        <header className="header" style={{ background: "rgb(37 31 12)" }}>
           <h1 className="logo">
             <Link to="#">Thoughts Pro</Link>
           </h1>
@@ -73,9 +73,13 @@ const Navbar = () => {
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <span
                       className="name-text"
-                      style={{ position: "absolute", right: "68px" }}
+                      style={{
+                        position: "absolute",
+                        right: "68px",
+                        color: "orangered",
+                      }}
                     >
-                      Welcome,
+                      Welcome ,
                     </span>
                     <Avatar
                       name={sessionStorage.getItem("name")}
