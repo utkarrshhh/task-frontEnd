@@ -4,7 +4,13 @@ import { Link } from "react-router-dom";
 // import houseowner from "..../public/house-owner.png";
 const BottomLine = () => {
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        background: "#13171c",
+      }}
+    >
       <div className="bottomline">
         <div id="imgBottomLine">
           <Link to="/posts">

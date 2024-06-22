@@ -1,5 +1,26 @@
 body {
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
-  background: #5ac3b0;
+  background: black;
+}
+/* For Webkit-based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+  height: 12px; /* height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(32, 31, 31); /* color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(50, 43, 43); /* color of the scroll handle */
+  border-radius: 10px; /* roundness of the scroll handle */
+  border: 2px solid grey; /* creates space around the scroll handle */
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: thin; /* scrollbar width */
+  scrollbar-color: #201f1f #000000; /* scroll handle and track color */
 }

@@ -50,7 +50,7 @@ const Navbar = () => {
     <div className="wholeContainer">
       <div>
         {" "}
-        <header className="header" style={{ background: "rgb(37 31 12)" }}>
+        <header className="header" style={{ background: "black" }}>
           <h1 className="logo">
             <Link to="#">Thoughts Pro</Link>
           </h1>
@@ -76,7 +76,7 @@ const Navbar = () => {
                       style={{
                         position: "absolute",
                         right: "68px",
-                        color: "orangered",
+                        color: "orange",
                       }}
                     >
                       Welcome ,

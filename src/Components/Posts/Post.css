@@ -1,0 +1,16 @@
+button img::before {
+  content: ""; /* Required for pseudo-element */
+  position: absolute; /* Position it absolutely within the button */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(
+    195,
+    53,
+    53,
+    0.5
+  ); /* Change this to your desired background color */
+  z-index: 0; /* Ensure it is below the image */
+  border-radius: 50%;
+}

@@ -10,7 +10,7 @@
   z-index: 1;
   gap: 40px;
   margin: 5px 0px;
-  /* background-color: blue; */
+  /* background: linear-gradient(lightseagreen, seagreen); */
 }
 .wholeContainer {
   display: flex;
@@ -25,4 +25,5 @@
 #imgBottomLine img {
   height: -webkit-fill-available;
   width: -webkit-fill-available;
+  filter: invert(100%);
 }

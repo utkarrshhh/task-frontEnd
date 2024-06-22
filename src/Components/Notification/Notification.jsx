@@ -10,8 +10,9 @@ const Notification = () => {
           position: "relative",
           top: "46px",
           width: "100%",
-          height: "100vh",
-          background: "blue",
+          height: "100%",
+          color: "white",
+          // background: "blue",
           overflowY: "visible",
         }}
       >
