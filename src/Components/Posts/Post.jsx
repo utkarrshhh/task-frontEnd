@@ -19,7 +19,7 @@ const Post = () => {
     fetchQuotes();
   }, []);
 
-  console.log(quotes);
+  // console.log(quotes);
 
   return (
     <>
@@ -31,7 +31,7 @@ const Post = () => {
           width: "100%",
           height: "100vh",
           // background: "blue",
-          overflowY: "visible",
+
           padding: "20px",
         }}
       >
@@ -49,7 +49,62 @@ const Post = () => {
             <img src="./public/loading.gif" />
           </div>
         ) : (
-          <div>Posts</div>
+          <div>
+            {quotes.map((value, index) => (
+              <div
+                style={{
+                  height: "100px",
+                  width: "100%",
+                  border: "2px solid red",
+                  zIndex: "1000",
+                  color: "white",
+                  background: "#13171C",
+                  margin: "10px",
+                  padding: "0 5px",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    height: "30%",
+                    width: "100%",
+                    borderBottom: "2px solid white",
+                  }}
+                >
+                  <span style={{}}>{value.author}</span>
+                  <span>
+                    <span style={{ fontFamily: "sans-serif" }}>
+                      Tags used -
+                    </span>{" "}
+                    {value.tags ? value.tags : "no Tags"}
+                  </span>
+                </div>
+                <div
+                  style={{
+                    height: "70%",
+                    width: "100%",
+                    // border: "2px solid blue",
+                    overflowY: "hidden",
+                    alignContent: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      height: "90%",
+                      display: "flex",
+                      justifyContent: "normal",
+                      alignItems: "baseline",
+                      padding: "0 5px",
+                    }}
+                  >
+                    {value.content}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         )}
       </div>
     </>
