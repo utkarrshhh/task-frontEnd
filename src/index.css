@@ -2,6 +2,7 @@ body {
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
   background: black;
+  /* padding-bottom: 10px; */
 }
 /* For Webkit-based browsers (Chrome, Safari) */
 ::-webkit-scrollbar {

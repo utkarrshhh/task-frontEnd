@@ -11,7 +11,7 @@ const Post = () => {
   const [loading, setLoading] = useState(true);
   const { quotes, setQuotes } = useContext(QuotesContext);
   const token = sessionStorage.getItem("token");
-  // const [likeQuotes, setLikeQuotes] = useState({whoLiked: "", whoseLiked: "",whatLiked: "",count:0});
+  const [likedQuoteId, setLikedQuoteId] = useState([{}]);
   useGSAP(() => {
     gsap.from(
       ".quoteContainers",
@@ -31,7 +31,7 @@ const Post = () => {
       console.log(response);
 
       const data = await response.json();
-      // console.log(data);
+      console.log(data);
       setQuotes(data);
       setLoading(false);
     };
@@ -50,7 +50,16 @@ const Post = () => {
       e.target.src = "./public/glowHeart.png";
     }
     gsap.from(e.target, { opacity: 0.5, scale: 0.5, duration: 0.5 });
+
+    const newId = e.target.parentNode.id;
+    // likedQuoteId = { ...likedQuoteId, id: e.target.parentNode.id };
+    // localStorage.setItem("likedQuotes", JSON.stringify(likedQuoteId));
+    setLikedQuoteId([...likedQuoteId, newId]);
+    localStorage.setItem("likedQuotes", JSON.stringify(likedQuoteId));
+    console.log(likedQuoteId);
   };
+
+  setInterval(() => {}, 300);
 
   return token ? (
     <>
@@ -152,6 +161,7 @@ const Post = () => {
                   <button
                     type="button"
                     onClick={likeBtnClicked}
+                    id={value._id}
                     style={{
                       height: "100%",
                       width: "auto",
@@ -163,7 +173,7 @@ const Post = () => {
                   >
                     <img
                       style={{
-                        height: "60%",
+                        height: "50%",
                         filter: "invert(1)",
                         zIndex: "1",
                       }}

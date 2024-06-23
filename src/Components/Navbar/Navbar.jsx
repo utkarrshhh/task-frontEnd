@@ -52,7 +52,12 @@ const Navbar = () => {
         {" "}
         <header className="header" style={{ background: "black" }}>
           <h1 className="logo">
-            <Link to="#">Thoughts Pro</Link>
+            <Link
+              style={{ fontFamily: "Playwrite IT Moderna ,cursive" }}
+              to="#"
+            >
+              Thoughts Pro
+            </Link>
           </h1>
           <ul
             className="main-nav"

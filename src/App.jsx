@@ -8,6 +8,9 @@ import Quote from "./Components/Quote/Quote";
 import Post from "./Components/Posts/Post";
 import Notification from "./Components/Notification/Notification";
 const App = () => {
+  document.body.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
   return (
     <>
       <BrowserRouter>
